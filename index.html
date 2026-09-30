@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varun CNC Art | Master Marble Moorti, CNC Carving & Temple Architecture</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            DEFAULT: '#D4AF37',
+                            light: '#F3E5AB',
+                            dark: '#AA820A',
+                            accent: '#FFD700'
+                        },
+                        darkBg: '#0B0F19',
+                        cardBg: '#131C2E',
+                        darker: '#070A10'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS for Luxury Styling & Magnetic Effects -->
+    <style>
+        body {
+            background-color: #070A10;
+            color: #E2E8F0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #D4AF37 50%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA820A 100%);
+        }
+        .luxury-card {
+            background: rgba(19, 28, 46, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .luxury-card:hover {
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.15);
+        }
+        /* Magnetic Floating Button Base Styles */
+        .magnetic-btn {
+            transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: transform;
+        }
+        .pulse-ring {
+            animation: pulse-gold 2s infinite;
+        }
+        @keyframes pulse-gold {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070A10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F293D;
+            border-radius: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+    </style>
+</head>
+<body class="bg-[#070A10] text-slate-100 antialiased selection:bg-gold selection:text-black">
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#070A10]/90 backdrop-blur-md border-b border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo & Brand -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold to-yellow-200 p-[2px] shadow-lg shadow-gold/20 group-hover:scale-105 transition duration-300">
+                        <div class="w-full h-full bg-[#0B0F19] rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-cube text-gold text-lg"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xl sm:text-2xl font-serif font-bold tracking-wider gold-gradient-text">VARUN CNC ART</span>
+                        <span class="block text-[10px] uppercase tracking-widest text-gold/80 font-medium">Marble & Temple Master Carvers</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium hover:text-gold transition duration-200">Home</a>
+                    <a href="#about" class="text-sm font-medium hover:text-gold transition duration-200">About Us</a>
+                    <a href="#services" class="text-sm font-medium hover:text-gold transition duration-200">Our Craft</a>
+                    <a href="#gallery" class="text-sm font-medium hover:text-gold transition duration-200">Gallery</a>
+                    <a href="#reviews" class="text-sm font-medium hover:text-gold transition duration-200">Reviews</a>
+                    <a href="#faq" class="text-sm font-medium hover:text-gold transition duration-200">FAQ</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-gold transition duration-200">Contact</a>
+                </nav>
+
+                <!-- Header CTA -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+917357138287" class="flex items-center space-x-2 text-sm font-semibold px-4 py-2 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-black transition duration-300">
+                        <i class="fa-solid fa-phone-volume"></i>
+                        <span>+91 73571 38287</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gold text-2xl p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#131C2E] border-b border-gold/20 px-6 py-6 space-y-4">
+            <a href="#home" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">Home</a>
+            <a href="#about" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">About Us</a>
+            <a href="#services" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">Our Craft</a>
+            <a href="#gallery" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">Gallery</a>
+            <a href="#reviews" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">Reviews</a>
+            <a href="#faq" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">FAQ</a>
+            <a href="#contact" class="block text-base font-medium hover:text-gold transition duration-200 mobile-link">Contact</a>
+            <div class="pt-4 border-t border-slate-700 flex flex-col space-y-3">
+                <a href="tel:+917357138287" class="flex items-center justify-center space-x-2 text-sm font-semibold px-4 py-3 rounded-xl bg-gold text-black">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Call +91 73571 38287</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <!-- Background Glow & Overlay -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[140px] pointer-events-none"></div>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80" alt="Luxury Interior and CNC Marble Work" class="w-full h-full object-cover opacity-20 scale-105 animate-pulse duration-1000">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#070A10] via-[#070A10]/70 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-2 rounded-full luxury-card mb-6" data-aos="fade-down" data-aos-duration="800">
+                <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+                <span class="text-xs sm:text-sm font-medium tracking-wider text-gold uppercase">Pindwara's Premier CNC & Marble Studio</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-serif font-bold tracking-tight mb-6 max-w-5xl mx-auto leading-tight" data-aos="fade-up" data-aos-duration="1000">
+                Divine Craftsmanship in <span class="gold-gradient-text">Marble & 3D CNC Art</span>
+            </h1>
+
+            <p class="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto mb-10 font-light leading-relaxed" data-aos="fade-up" data-aos-duration="1200">
+                Specializing in breathtaking temple architecture, intricate marble moortis, precision CNC stone jalis, pillars, and bespoke luxury interior designs.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6" data-aos="fade-up" data-aos-duration="1400">
+                <a href="https://wa.me/917357138287?text=Hello%20Varun%20CNC%20Art,%20I%20would%20like%20to%20inquire%20about%20your%20marble%20and%20CNC%20services." target="_blank" class="w-full sm:w-auto px-8 py-4 rounded-xl gold-gradient-bg text-black font-semibold text-base shadow-xl shadow-gold/20 hover:scale-105 hover:shadow-gold/40 transition duration-300 flex items-center justify-center space-x-3">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Chat on WhatsApp</span>
+                </a>
+                <a href="#gallery" class="w-full sm:w-auto px-8 py-4 rounded-xl luxury-card text-gold font-semibold text-base hover:bg-gold/10 hover:border-gold transition duration-300 flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Explore Gallery</span>
+                </a>
+            </div>
+
+            <!-- Quick Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto mt-20" data-aos="fade-up" data-aos-duration="1600">
+                <div class="luxury-card p-6 rounded-2xl text-center">
+                    <span class="block text-3xl sm:text-4xl font-serif font-bold gold-gradient-text mb-1">100+</span>
+                    <span class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider">Temple Projects</span>
+                </div>
+                <div class="luxury-card p-6 rounded-2xl text-center">
+                    <span class="block text-3xl sm:text-4xl font-serif font-bold gold-gradient-text mb-1">500+</span>
+                    <span class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider">Marble Moortis</span>
+                </div>
+                <div class="luxury-card p-6 rounded-2xl text-center">
+                    <span class="block text-3xl sm:text-4xl font-serif font-bold gold-gradient-text mb-1">100%</span>
+                    <span class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider">Precision CNC</span>
+                </div>
+                <div class="luxury-card p-6 rounded-2xl text-center">
+                    <span class="block text-3xl sm:text-4xl font-serif font-bold gold-gradient-text mb-1">1.7K+</span>
+                    <span class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider">Insta Followers</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative bg-[#0B0F19]/50 border-y border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Image Composition -->
+                <div class="lg:col-span-6 relative" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative rounded-2xl overflow-hidden border-2 border-gold/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1000&q=80" alt="Master Craftsman Working on Marble" class="w-full h-[450px] object-cover hover:scale-105 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#070A10] via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="luxury-card p-4 rounded-xl flex items-center space-x-4">
+                                <div class="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-black font-bold text-xl flex-shrink-0">
+                                    <i class="fa-solid fa-award"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif font-bold text-white text-base">Master Class Sculptors</h4>
+                                    <p class="text-xs text-slate-300">Blending traditional Indian temple artistry with cutting-edge 3D CNC technology.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative Badge -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-gold/10 rounded-full blur-2xl pointer-events-none"></div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="lg:col-span-6 space-y-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-gold/10 border border-gold/30 text-gold text-xs uppercase tracking-widest font-semibold">
+                        About Varun CNC Art
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-serif font-bold tracking-tight leading-tight">
+                        Transforming Raw Stone into <span class="gold-gradient-text">Divine Masterpieces</span>
+                    </h2>
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light">
+                        Based in Pindwara (Opposite Rico Industries), <strong class="text-white font-medium">Varun CNC Art</strong> stands as a benchmark for excellence in architectural stone carving, marble moortis, and modern interior relief designs. 
+                    </p>
+                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+                        Led by passionate artisans and advanced 3D CNC machinery, we specialize in intricate temple work, majestic pillars, custom jalis, and personalized religious sculptures that breathe eternal life into marble and granite.
+                    </p>
+
+                    <!-- Feature bullets -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="text-gold mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Precision 3D Carving</h5>
+                                <p class="text-xs text-slate-400">High-definition computer numerical control technology.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-gold mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Pure White Marble</h5>
+                                <p class="text-xs text-slate-400">Premium Makrana & imported marble quality.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-gold mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Temple Architecture</h5>
+                                <p class="text-xs text-slate-400">Traditional shikhara, mandaps & pillars.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="text-gold mt-1"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h5 class="text-white font-medium text-sm">Custom Interior Decor</h5>
+                                <p class="text-xs text-slate-400">Luxurious wall panels and 3D relief art.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram handle link -->
+                    <div class="pt-4 flex items-center space-x-4">
+                        <a href="https://instagram.com/varun_cnc_art" target="_blank" class="inline-flex items-center space-x-3 px-5 py-2.5 rounded-xl bg-[#131C2E] border border-gold/30 text-white hover:border-gold transition duration-300 text-sm font-medium">
+                            <i class="fa-brands fa-instagram text-gold text-lg"></i>
+                            <span>Follow @varun_cnc_art</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="800">
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-md border border-gold/30">Our Expertise</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-4 mb-4">Specialized <span class="gold-gradient-text">Art & Sculpting Services</span></h2>
+                <p class="text-slate-400 text-base sm:text-lg">Explore our range of masterworks crafted with devotion, precision, and state-of-the-art technology.</p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="luxury-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-duration="600">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=600&q=80" alt="Marble Moorti" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#131C2E] via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-[#070A10]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">Divine</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold transition duration-200">Marble Moorti</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Exquisite divine idols of deities crafted with soulful expressions and immaculate anatomical perfection.</p>
+                        <a href="https://wa.me/917357138287?text=I%20want%20to%20inquire%20about%20Marble%20Moorti" target="_blank" class="inline-flex items-center space-x-2 text-gold text-sm font-semibold pt-2 hover:translate-x-1 transition duration-200">
+                            <span>Inquire Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="luxury-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-duration="800">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80" alt="CNC Stone Art" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#131C2E] via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-[#070A10]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">Technology</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold transition duration-200">CNC Stone & Jali Art</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Intricate geometric jalis, parametric patterns, and customized wall reliefs carved with micron precision.</p>
+                        <a href="https://wa.me/917357138287?text=I%20want%20to%20inquire%20about%20CNC%20Stone%20Jali" target="_blank" class="inline-flex items-center space-x-2 text-gold text-sm font-semibold pt-2 hover:translate-x-1 transition duration-200">
+                            <span>Inquire Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="luxury-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600&q=80" alt="Temple Pillars & Architecture" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#131C2E] via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-[#070A10]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">Heritage</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold transition duration-200">Temple Pillars & Work</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Grand temple architecture including intricately carved pillars, brackets, domes, and sanctum structures.</p>
+                        <a href="https://wa.me/917357138287?text=I%20want%20to%20inquire%20about%20Temple%20Work" target="_blank" class="inline-flex items-center space-x-2 text-gold text-sm font-semibold pt-2 hover:translate-x-1 transition duration-200">
+                            <span>Inquire Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="luxury-card rounded-2xl overflow-hidden group" data-aos="fade-up" data-aos-duration="1200">
+                    <div class="relative h-60 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&q=80" alt="Interior Design 3D Arts" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#131C2E] via-transparent to-transparent"></div>
+                        <span class="absolute top-4 right-4 bg-[#070A10]/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium text-gold border border-gold/30">Luxury</span>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-serif font-bold text-white group-hover:text-gold transition duration-200">3D Interior Designs</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Bespoke 3D artistic wall murals, luxury foyer panels, and custom stone furniture for modern interiors.</p>
+                        <a href="https://wa.me/917357138287?text=I%20want%20to%20inquire%20about%20Interior%20Designs" target="_blank" class="inline-flex items-center space-x-2 text-gold text-sm font-semibold pt-2 hover:translate-x-1 transition duration-200">
+                            <span>Inquire Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-24 bg-[#0B0F19]/50 border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up" data-aos-duration="800">
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-md border border-gold/30">Masterpiece Portfolio</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-4 mb-4">Our Craft <span class="gold-gradient-text">Gallery</span></h2>
+                <p class="text-slate-400 text-base sm:text-lg">Take a glimpse into our recent marble sculptures, temple carvings, and high-end interior projects.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12" data-aos="fade-up" data-aos-duration="1000">
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition duration-300 bg-gold text-black shadow-lg shadow-gold/20" data-filter="all">All Works</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition duration-300 luxury-card text-slate-300 hover:text-gold" data-filter="moorti">Marble Moorti</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition duration-300 luxury-card text-slate-300 hover:text-gold" data-filter="cnc">CNC Art & Jali</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition duration-300 luxury-card text-slate-300 hover:text-gold" data-filter="temple">Temple Pillars</button>
+                <button class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium transition duration-300 luxury-card text-slate-300 hover:text-gold" data-filter="interior">Interior 3D</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="gallery-grid">
+                <!-- Item 1 -->
+                <div class="gallery-item luxury-card rounded-2xl overflow-hidden group cursor-pointer" data-category="moorti" data-aos="fade-up" data-aos-duration="600">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&w=800&q=80" alt="Marble Moorti Sculpture" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Marble Moorti</span>
+                                <h4 class="text-lg font-serif font-bold text-white">Divine White Marble Deity</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-md flex items-center justify-center text-gold border border-gold/40 group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item luxury-card rounded-2xl overflow-hidden group cursor-pointer" data-category="cnc" data-aos="fade-up" data-aos-duration="800">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="CNC Stone Jali" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">CNC Art</span>
+                                <h4 class="text-lg font-serif font-bold text-white">Intricate Stone Jali Panel</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-md flex items-center justify-center text-gold border border-gold/40 group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item luxury-card rounded-2xl overflow-hidden group cursor-pointer" data-category="temple" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=800&q=80" alt="Temple Pillars" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Temple Work</span>
+                                <h4 class="text-lg font-serif font-bold text-white">Handcrafted Temple Pillars</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-md flex items-center justify-center text-gold border border-gold/40 group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item luxury-card rounded-2xl overflow-hidden group cursor-pointer" data-category="interior" data-aos="fade-up" data-aos-duration="600">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Interior Design" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Interior 3D</span>
+                                <h4 class="text-lg font-serif font-bold text-white">Luxury 3D Wall Relief Art</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-md flex items-center justify-center text-gold border border-gold/40 group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="gallery-item luxury-card rounded-2xl overflow-hidden group cursor-pointer" data-category="moorti" data-aos="fade-up" data-aos-duration="800">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1590073844006-33379778ae09?auto=format&fit=crop&w=800&q=80" alt="Marble Sculpture" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">Marble Moorti</span>
+                                <h4 class="text-lg font-serif font-bold text-white">Custom Deity Sculpture</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-md flex items-center justify-center text-gold border border-gold/40 group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="gallery-item luxury-card rounded-2xl overflow-hidden group cursor-pointer" data-category="cnc" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="relative h-72 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="CNC Marble Work" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0B0F19] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition duration-300"></div>
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                            <div>
+                                <span class="text-xs text-gold uppercase tracking-wider font-semibold">CNC Art</span>
+                                <h4 class="text-lg font-serif font-bold text-white">Geometric 3D Stone Carving</h4>
+                            </div>
+                            <div class="w-10 h-10 rounded-full bg-gold/20 backdrop-blur-md flex items-center justify-center text-gold border border-gold/40 group-hover:bg-gold group-hover:text-black transition duration-300">
+                                <i class="fa-solid fa-expand"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="py-24 relative bg-[#0B0F19]/50 border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="800">
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-md border border-gold/30">Testimonials</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-4 mb-4">What Our <span class="gold-gradient-text">Clients Say</span></h2>
+                <p class="text-slate-400 text-base sm:text-lg">Read feedback from temple trusts, interior designers, and homeowners who trust Varun CNC Art.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="luxury-card p-8 rounded-2xl relative flex flex-col justify-between" data-aos="fade-up" data-aos-duration="600">
+                    <div class="absolute top-6 right-6 text-gold/20 text-4xl font-serif">“</div>
+                    <div class="space-y-4">
+                        <div class="flex text-gold space-x-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed font-light">
+                            "Varun CNC Art crafted the marble moorti and pillars for our new home temple in Pindwara. The detailing on the marble is exceptionally divine and pristine. Truly master craftsmen!"
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gold/10 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-black font-bold text-lg">
+                            RS
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Rajesh Sharma</h4>
+                            <p class="text-xs text-gold">Homeowner & Temple Patron</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="luxury-card p-8 rounded-2xl relative flex flex-col justify-between" data-aos="fade-up" data-aos-duration="800">
+                    <div class="absolute top-6 right-6 text-gold/20 text-4xl font-serif">“</div>
+                    <div class="space-y-4">
+                        <div class="flex text-gold space-x-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed font-light">
+                            "As an interior architect, I frequently source custom CNC stone jalis and 3D wall panels from Varun CNC Art. Their precision and finishing are top-tier in the industry."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gold/10 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-black font-bold text-lg">
+                            AP
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Ankit Porwal</h4>
+                            <p class="text-xs text-gold">Interior Architect</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="luxury-card p-8 rounded-2xl relative flex flex-col justify-between" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="absolute top-6 right-6 text-gold/20 text-4xl font-serif">“</div>
+                    <div class="space-y-4">
+                        <div class="flex text-gold space-x-1">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed font-light">
+                            "Immaculate work on our temple mandap. Their workshop near Rico Industries in Pindwara has world-class CNC setup combined with traditional sculpting expertise."
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-gold/10 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-full gold-gradient-bg flex items-center justify-center text-black font-bold text-lg">
+                            MK
+                        </div>
+                        <div>
+                            <h4 class="font-serif font-bold text-white text-base">Mahesh Kumawat</h4>
+                            <p class="text-xs text-gold">Temple Committee Head</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="800">
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-md border border-gold/30">Got Questions?</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-4 mb-4">Frequently Asked <span class="gold-gradient-text">Questions</span></h2>
+                <p class="text-slate-400 text-base sm:text-lg">Find answers regarding our marble moortis, custom CNC orders, and delivery services.</p>
+            </div>
+
+            <!-- Accordion List -->
+            <div class="space-y-4" data-aos="fade-up" data-aos-duration="1000">
+                <!-- FAQ 1 -->
+                <div class="luxury-card rounded-xl overflow-hidden transition duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-semibold text-white text-base sm:text-lg">What types of marble do you use for Moortis and Temple work?</span>
+                        <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-gold/10 pt-4">
+                        We exclusively use premium quality white Makrana marble, statue-grade Italian marble, and high-grade regional stone known for their durability, fine grain, and lustrous finish that lasts for generations.
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="luxury-card rounded-xl overflow-hidden transition duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-semibold text-white text-base sm:text-lg">Where is Varun CNC Art located? Can we visit the workshop?</span>
+                        <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-gold/10 pt-4">
+                        Our workshop is located in Pindwara, opposite Rico Industries, Rajasthan. You are most welcome to visit our studio to inspect live carvings, raw marble blocks, and custom ongoing projects.
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="luxury-card rounded-xl overflow-hidden transition duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-semibold text-white text-base sm:text-lg">Do you take custom orders for 3D CNC Art and Temple Pillars?</span>
+                        <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-gold/10 pt-4">
+                        Yes! We specialize in 100% customized orders. Whether you have specific architectural blueprints, photo references, or custom dimension requirements for temple pillars and interior jalis, we bring your vision to life.
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="luxury-card rounded-xl overflow-hidden transition duration-300">
+                    <button class="faq-toggle w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none">
+                        <span class="font-serif font-semibold text-white text-base sm:text-lg">How can I place an order or get a quote?</span>
+                        <i class="fa-solid fa-chevron-down text-gold transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-gold/10 pt-4">
+                        You can easily reach us via WhatsApp at +91 73571 38287 or call us directly. Send us your design reference or requirements, and our team will provide a transparent quotation and timeline.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-[#0B0F19]/50 border-t border-gold/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="800">
+                <span class="text-xs font-semibold uppercase tracking-widest text-gold bg-gold/10 px-3 py-1 rounded-md border border-gold/30">Get in Touch</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold mt-4 mb-4">Visit Our Studio & <span class="gold-gradient-text">Contact Us</span></h2>
+                <p class="text-slate-400 text-base sm:text-lg">Connect with us for custom marble carvings, temple designs, and expert consultations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact Information & Quick Form -->
+                <div class="lg:col-span-6 space-y-8" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="luxury-card p-8 rounded-2xl space-y-6">
+                        <h3 class="text-2xl font-serif font-bold text-white">Contact Information</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black font-bold text-xl flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium text-sm">Workshop Address</h5>
+                                    <p class="text-xs text-slate-300 mt-1">Pindwara, Opposite Rico Industries, Rajasthan, India</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black font-bold text-xl flex-shrink-0 mt-1">
+                                    <i class="fa-solid fa-phone-volume"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium text-sm">Phone / WhatsApp</h5>
+                                    <p class="text-xs text-slate-300 mt-1">+91 73571 38287, 9252201735</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-xl gold-gradient-bg flex items-center justify-center text-black font-bold text-xl flex-shrink-0 mt-1">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-medium text-sm">Instagram Handle</h5>
+                                    <a href="https://instagram.com/varun_cnc_art" target="_blank" class="text-xs text-gold hover:underline mt-1 block">@varun_cnc_art</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/917357138287?text=Hello%20Varun%20CNC%20Art" target="_blank" class="flex-1 py-3.5 px-6 rounded-xl gold-gradient-bg text-black font-semibold text-center text-sm shadow-lg shadow-gold/20 hover:scale-105 transition duration-300 flex items-center justify-center space-x-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>WhatsApp Us</span>
+                            </a>
+                            <a href="tel:+917357138287" class="flex-1 py-3.5 px-6 rounded-xl luxury-card text-gold font-semibold text-center text-sm hover:bg-gold/10 hover:border-gold transition duration-300 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-phone"></i>
+                                <span>Call Now</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Map Section (Embedded OpenStreetMap for Pindwara) -->
+                <div class="lg:col-span-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="luxury-card p-4 rounded-2xl h-full flex flex-col">
+                        <div class="relative w-full h-[380px] sm:h-[430px] rounded-xl overflow-hidden border border-gold/20">
+                            <!-- OpenStreetMap Embed centered near Pindwara, Sirohi, Rajasthan -->
+                            <iframe 
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                scrolling="no" 
+                                marginheight="0" 
+                                marginwidth="0" 
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=72.71%2C24.78%2C72.77%2C24.83&amp;layer=mapnik&amp;marker=24.805%2C72.74" 
+                                style="filter: invert(90%) hue-rotate(180deg) contrast(120%);">
+                            </iframe>
+                        </div>
+                        <div class="p-4 text-center">
+                            <span class="text-xs text-gold uppercase tracking-wider font-semibold">📍 Pindwara Opposite Rico Industries</span>
+                            <p class="text-xs text-slate-400 mt-1">Click and drag map to navigate studio surroundings.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#070A10] border-t border-gold/20 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1: Brand -->
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-full gold-gradient-bg p-[2px]">
+                            <div class="w-full h-full bg-[#0B0F19] rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-cube text-gold text-sm"></i>
+                            </div>
+                        </div>
+                        <span class="text-xl font-serif font-bold gold-gradient-text">VARUN CNC ART</span>
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Master craftsmen in marble moortis, intricate temple architecture, and 3D CNC stone carvings based in Pindwara, Rajasthan.
+                    </p>
+                    <div class="flex items-center space-x-4 pt-2">
+                        <a href="https://instagram.com/varun_cnc_art" target="_blank" class="w-10 h-10 rounded-full luxury-card flex items-center justify-center text-gold hover:bg-gold hover:text-black transition duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://wa.me/917357138287" target="_blank" class="w-10 h-10 rounded-full luxury-card flex items-center justify-center text-gold hover:bg-gold hover:text-black transition duration-300">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="tel:+917357138287" class="w-10 h-10 rounded-full luxury-card flex items-center justify-center text-gold hover:bg-gold hover:text-black transition duration-300">
+                            <i class="fa-solid fa-phone"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-base mb-4 border-l-2 border-gold pl-3">Quick Links</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#home" class="hover:text-gold transition duration-200">Home</a></li>
+                        <li><a href="#about" class="hover:text-gold transition duration-200">About Us</a></li>
+                        <li><a href="#services" class="hover:text-gold transition duration-200">Our Craft & Services</a></li>
+                        <li><a href="#gallery" class="hover:text-gold transition duration-200">Portfolio Gallery</a></li>
+                        <li><a href="#reviews" class="hover:text-gold transition duration-200">Customer Reviews</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Services -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-base mb-4 border-l-2 border-gold pl-3">Specialties</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><span class="hover:text-gold transition duration-200 cursor-pointer">Marble Moortis</span></li>
+                        <li><span class="hover:text-gold transition duration-200 cursor-pointer">CNC Stone Jali</span></li>
+                        <li><span class="hover:text-gold transition duration-200 cursor-pointer">Temple Pillars & Mandaps</span></li>
+                        <li><span class="hover:text-gold transition duration-200 cursor-pointer">3D Interior Wall Relief</span></li>
+                        <li><span class="hover:text-gold transition duration-200 cursor-pointer">Makrana Marble Sculpting</span></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact info -->
+                <div>
+                    <h4 class="font-serif font-bold text-white text-base mb-4 border-l-2 border-gold pl-3">Contact & Insta</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-gold mt-1"></i>
+                            <span>Pindwara Opposite Rico Industries, Rajasthan</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-gold"></i>
+                            <span>+91 73571 38287 / 9252201735</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-brands fa-instagram text-gold"></i>
+                            <a href="https://instagram.com/varun_cnc_art" target="_blank" class="hover:text-gold transition">@varun_cnc_art</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright -->
+            <div class="pt-8 border-t border-gold/10 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500">
+                <p>&copy; 2026 Varun CNC Art. All rights reserved. Master Marble & Temple Carvers.</p>
+                <div class="flex items-center space-x-6 mt-4 sm:mt-0">
+                    <span class="hover:text-gold cursor-pointer">Privacy Policy</span>
+                    <span class="hover:text-gold cursor-pointer">Terms of Service</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-4">
+        <!-- WhatsApp Floating Button with Magnetic Effect -->
+        <a href="https://wa.me/917357138287?text=Hello%20Varun%20CNC%20Art,%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" class="magnetic-btn w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-2xl shadow-green-500/50 pulse-ring hover:scale-110 transition duration-300 relative group" title="Chat on WhatsApp">
+            <i class="fa-brands fa-whatsapp text-2xl"></i>
+            <span class="absolute right-16 bg-[#131C2E] border border-gold/30 text-white text-xs px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none whitespace-nowrap">WhatsApp Us</span>
+        </a>
+
+        <!-- Call Floating Button with Magnetic Effect -->
+        <a href="tel:+917357138287" class="magnetic-btn w-14 h-14 rounded-full gold-gradient-bg text-black flex items-center justify-center shadow-2xl shadow-gold/40 hover:scale-110 transition duration-300 relative group" title="Call Us">
+            <i class="fa-solid fa-phone-volume text-xl"></i>
+            <span class="absolute right-16 bg-[#131C2E] border border-gold/30 text-white text-xs px-3 py-1.5 rounded-lg shadow-xl opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none whitespace-nowrap">+91 73571 38287</span>
+        </a>
+    </div>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animations
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out-cubic'
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Gallery Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-gold', 'text-black', 'shadow-lg', 'shadow-gold/20');
+                    b.classList.add('luxury-card', 'text-slate-300');
+                });
+                // Add active styling to clicked button
+                btn.classList.add('bg-gold', 'text-black', 'shadow-lg', 'shadow-gold/20');
+                btn.classList.remove('luxury-card', 'text-slate-300');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // FAQ Accordion Toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('fa-chevron-down');
+                
+                // Toggle current
+                content.classList.toggle('hidden');
+                toggle.classList.toggle('text-gold');
+            });
+        });
+
+        // Magnetic Effect on Floating Buttons
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px) scale(1.1)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
